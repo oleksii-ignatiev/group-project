@@ -1,18 +1,20 @@
 import React from 'react';
-import { Table, Tag, Space } from 'antd';
+import { Table, Tag } from 'antd';
 import 'antd/dist/antd.css';
 import './custom.css';
+
 
 import { useTopRatedFilmsFetch } from './hooks/useTopRatedFilms';
 
 export const TopRatedFilms = () => {
-    const { isFetching, topRatedFilms, error } = useTopRatedFilmsFetch();
+    const { getFilms, isFetching,  error } = useTopRatedFilmsFetch();
+    const topRatedFilms = getFilms();
     const columns = [
         {
           title: 'Poster',
           dataIndex: 'poster_path',
           key: 'poster_path',
-          render: text => <img src={text} />,
+          render: text => <img src={text} alt="poster"/>,
         },
         {
           title: 'Title',
