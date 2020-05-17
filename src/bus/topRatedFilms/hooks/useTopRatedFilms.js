@@ -1,24 +1,21 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { topRatedFilmsActions } from '../actions';
 
-export const useTopRatedFilmsFetch = () => {
+export const useTopRatedFilms = () => {
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(topRatedFilmsActions.fetchAsync(10));
-    }, [dispatch]);
-
+    
     const {
         topRatedFilms,
-        isFetching,
-        error
     } = useSelector((state) => state.topRatedFilms);
 
+    const getTopRatedFilms = () => {
+        
+        dispatch(topRatedFilmsActions.fetchAsync(10));
+    }
+
     return {
-        topRatedFilms,
-        isFetching,
-        error
+        getTopRatedFilms,
+        topRatedFilms
     }
 }
