@@ -7,6 +7,8 @@ const initialState = {
     error: null,
 };
 
+const addKey = (dataFilms) => dataFilms.map(film => film && {...film, key: film.title} );
+
 export const popularFilmsReducer = (state = initialState, { type, payload}) => {
     switch (type) {
         case types.POPULAR_FILMS_START_FETCHING:
@@ -16,7 +18,7 @@ export const popularFilmsReducer = (state = initialState, { type, payload}) => {
         case types.POPULAR_FILMS_SET_FETCHING_ERROR:
             return { ...state, error: payload, popularFilms: [] };
         case types.POPULAR_FILMS_FILL:
-            return { ...state, popularFilms: payload, error: null };
+            return { ...state, popularFilms: addKey(payload), error: null };
         default:
             return state;
     }
