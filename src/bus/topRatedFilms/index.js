@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table, Tag } from 'antd';
 import 'antd/dist/antd.css';
 import './custom.css';
@@ -8,7 +8,10 @@ import { useTopRatedFilms } from './hooks/useTopRatedFilms';
 
 export const TopRatedFilms = () => {
     const { getTopRatedFilms, topRatedFilms } = useTopRatedFilms();
-    getTopRatedFilms();
+    useEffect(() => {
+        getTopRatedFilms();
+    }, []);
+    
     
     const columns = [
         {

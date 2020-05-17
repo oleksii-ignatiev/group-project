@@ -10,6 +10,7 @@ export const useTopRatedFilms = () => {
     } = useSelector((state) => state.topRatedFilms);
 
     const getTopRatedFilms = () => {
+        
         dispatch(topRatedFilmsActions.fetchAsync(10));
     }
 
