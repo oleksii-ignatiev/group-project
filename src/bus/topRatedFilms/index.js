@@ -4,11 +4,12 @@ import 'antd/dist/antd.css';
 import './custom.css';
 
 
-import { useTopRatedFilmsFetch } from './hooks/useTopRatedFilms';
+import { useTopRatedFilms } from './hooks/useTopRatedFilms';
 
 export const TopRatedFilms = () => {
-    const { getFilms, isFetching,  error } = useTopRatedFilmsFetch();
-    const topRatedFilms = getFilms();
+    const { getTopRatedFilms, topRatedFilms } = useTopRatedFilms();
+    getTopRatedFilms();
+    
     const columns = [
         {
           title: 'Poster',
