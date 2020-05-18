@@ -1,7 +1,6 @@
 //Core
 import React from "react";
 import {Avatar} from "antd";
-import { Link } from "react-router-dom";
 
 export const columns = [
     {
@@ -14,7 +13,6 @@ export const columns = [
         title: 'Title',
         dataIndex: 'title',
         key: 'title',
-        render: (title, item) => <Link to={`/film/${item.id}`}>{title}</Link>
     },
     {
         title: 'Popularity',
