@@ -1,5 +1,5 @@
 export const initialState = {
-    latestFilms: '',
+    latestFilms: {},
     isFetching: false,
     error: null,
 };

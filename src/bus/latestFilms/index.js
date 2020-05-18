@@ -61,7 +61,19 @@ export const LatestFilms = () => {
         <p>Loading data from API...</p>
     );
 
-    const tableJSX = !isFetching && latestFilms && <Table dataSource={dataSource} columns={columns} />;
+    let tableId = 0;
+
+    const tableJSX = !isFetching && latestFilms &&
+        <Table
+            dataSource={dataSource}
+            columns={columns}
+            rowKey={(record) => {
+                if (!record.id)
+                    record.id = ++tableId;
+                return record.id;
+            }}
+            pagination={false}
+        />;
 
     return (
         <>
