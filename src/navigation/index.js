@@ -11,6 +11,7 @@ import { TopRatedFilms } from '../pages/topRatedFilms';
 import { PopularFilms } from '../pages/popularFilms';
 import { Film } from '../pages/film';
 
+
 export const Routes = () => {
     return (
         <>
@@ -33,4 +34,4 @@ export const Routes = () => {
         </Switch>
         </>
     )
-}
+};
