@@ -1,6 +1,6 @@
 //Core
-import React from 'react';
-import { Table } from 'antd';
+import React, {useEffect} from 'react';
+import { Table, Spin, Space } from 'antd';
 // Styles
 import 'antd/dist/antd.css';
 import './styles.css';
@@ -13,11 +13,34 @@ import { columns } from './columns';
 
 
 export const PopularFilms = () => {
-    const { popularFilms } = usePopularFilms();
+    const { popularFilms, getPopularFilms, isFetching, error } = usePopularFilms();
+    useEffect(() => getPopularFilms(), []);
+
+    if (error && error.status === 404) {
+        return <p>Not found!</p>
+    }
+
+    if (error && error.status !== 404) {
+        return <p>Something went wrong...</p>
+    }
+
+    const spinnerJSX = isFetching && (
+        <div className="spinContainer">
+            <Space>
+                <Spin size="large" />
+            </Space>
+        </div>
+    );
+
+    const tableJSX = !isFetching && popularFilms && (
+        <Table dataSource={popularFilms} columns={columns} />
+    );
+
     return (
         <div className="container">
             <h2>Most popular films</h2>
-            <Table dataSource={popularFilms} columns={columns} />;
+            {tableJSX}
+            {spinnerJSX}
         </div>
     )
 };
