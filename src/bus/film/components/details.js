@@ -10,7 +10,7 @@ export const Details = ({filmDetails}) => {
             <Descriptions.Item label="Release date">{filmDetails.release_date}</Descriptions.Item>
             <Descriptions.Item label="Status">{filmDetails.status}</Descriptions.Item>
             <Descriptions.Item label="Poster">
-                <Avatar shape="square" size={200} icon={<img src={filmDetails.poster_path} alt="img" />} />
+                <Avatar shape="square" size={200} src={filmDetails.poster_path} />
             </Descriptions.Item>
             <Descriptions.Item label="Overview" span={2}>{filmDetails.overview}</Descriptions.Item>
             <Descriptions.Item label="Genres">
