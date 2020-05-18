@@ -1,23 +1,34 @@
 // Core
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 // Routes
 import { book } from './book';
 
 // Pages
+import { Home } from '../pages/home';
+import { TopRatedFilms } from '../pages/topRatedFilms';
 import { PopularFilms } from '../pages/popularFilms';
 
+export const Routes = () => {
 
-export const Routes = () => (
-    <>
-        <Switch>
-            <Route exact path={ book.root }>
-                Hello!
-            </Route>
-            <Route exact path={ book.popularFilms }>
-                <PopularFilms />
-            </Route>
-        </Switch>
-    </>
-);
+
+    return (
+        <>
+            <Switch>
+                <Route exact path={ book.root }>
+                    <Home />
+                </Route>
+                <Route exact path={ book.topRatedFilms }>
+                    <TopRatedFilms />
+                </Route>
+                <Route exact path={ book.films }>
+                    <Redirect to={ book.topRatedFilms } />
+                </Route>
+                <Route exact path={ book.popularFilms }>
+                    <PopularFilms />
+                </Route>
+            </Switch>
+        </>
+    )
+}
