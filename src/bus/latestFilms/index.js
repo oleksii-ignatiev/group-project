@@ -57,10 +57,6 @@ export const LatestFilms = () => {
         return <p>Something went wrong...</p>
     }
 
-    const spinnerJSX = isFetching && (
-        <p>Loading data from API...</p>
-    );
-
     let tableId = 0;
 
     const tableJSX = !isFetching && latestFilms &&
@@ -72,13 +68,13 @@ export const LatestFilms = () => {
                     record.id = ++tableId;
                 return record.id;
             }}
+            loading={isFetching}
             pagination={false}
         />;
 
     return (
         <>
             <h1>Latest Films</h1>
-            {spinnerJSX}
             {tableJSX}
         </>
     )

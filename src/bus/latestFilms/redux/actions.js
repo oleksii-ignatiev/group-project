@@ -2,7 +2,7 @@
 import {types} from './types';
 
 // API
-import {api} from '../../../api';
+import {api} from '../api';
 
 export const latestFilmsActions = Object.freeze({
     // Sync
