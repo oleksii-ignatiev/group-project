@@ -8,6 +8,8 @@ import { book } from './book';
 // Pages
 import { Home } from '../pages/home';
 import { TopRatedFilms } from '../pages/topRatedFilms';
+import { PopularFilms } from '../pages/popularFilms';
+import { Film } from '../pages/film';
 
 export const Routes = () => {
    
@@ -23,6 +25,12 @@ export const Routes = () => {
                 </Route>
                 <Route exact path={ book.films }>
                     <Redirect to={ book.topRatedFilms } />
+                </Route>
+                <Route exact path={ book.popularFilms }>
+                    <PopularFilms />
+                </Route>
+                <Route exact path={ book.film }>
+                    <Film />
                 </Route>
 
             </Switch>
