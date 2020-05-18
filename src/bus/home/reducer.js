@@ -18,6 +18,6 @@ export const trendingMoviesReducer = (state = initialState, { type, payload }) =
         case types.TRENDING_MOVIES_FILL:
             return { ...state, trendingMovies: payload, error: false }
         default:
-            return state;
+            return { ...state };
     }
 };

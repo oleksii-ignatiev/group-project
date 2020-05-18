@@ -7,6 +7,7 @@ export const useTrendingMovies = () => {
     
     const {
         trendingMovies,
+        error
     } = useSelector((state) => state.trendingMovies);
 
     const getTrendingMovies = (time) => {
@@ -16,6 +17,7 @@ export const useTrendingMovies = () => {
 
     return {
         getTrendingMovies,
-        trendingMovies
+        trendingMovies,
+        error
     }
 }
