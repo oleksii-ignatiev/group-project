@@ -30,14 +30,14 @@ export const popularFilmsActions = Object.freeze({
         }
     },
     //Async
-    fetchAsync: () => async (dispatch) => {
+    fetchAsync: (page) => async (dispatch) => {
         dispatch({
             type: types.POPULAR_FILMS_FETCH_ASYNC,
         });
 
         dispatch(popularFilmsActions.startFetching());
 
-        const response = await api.getPopularMovies.fetch();
+        const response = await api.getPopularMovies.fetch(page);
 
         if (response.status === 200) {
 
