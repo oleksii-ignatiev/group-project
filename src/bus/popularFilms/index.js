@@ -14,6 +14,7 @@ import { columns } from './columns';
 
 export const PopularFilms = () => {
     const { popularFilms, getPopularFilms, isFetching, error } = usePopularFilms();
+
     useEffect(() => getPopularFilms(), []);
 
     if (error && error.status === 404) {
@@ -33,7 +34,10 @@ export const PopularFilms = () => {
     );
 
     const tableJSX = !isFetching && popularFilms && (
-        <Table dataSource={popularFilms} columns={columns} />
+        <Table
+            dataSource={popularFilms}
+            columns={columns}
+        />
     );
 
     return (
