@@ -3,14 +3,13 @@ import { Table, Tag } from 'antd';
 import 'antd/dist/antd.css';
 import './custom.css';
 
-
 import { useTopRatedFilms } from './hooks/useTopRatedFilms';
 
 export const TopRatedFilms = () => {
     const { getTopRatedFilms, topRatedFilms } = useTopRatedFilms();
     useEffect(() => {
         getTopRatedFilms();
-    }, []);
+    });
     
     
     const columns = [
