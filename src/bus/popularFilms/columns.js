@@ -8,7 +8,7 @@ export const columns = [
         title: 'Poster',
         dataIndex: 'poster_path',
         key: 'poster_path',
-        render: (icon) => <Avatar shape="square" size={200} icon={<img src={icon} alt="img" />} />
+        render: (icon) => <Avatar shape="square" size={200} src={icon} />
     },
     {
         title: 'Title',
