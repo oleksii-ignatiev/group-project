@@ -1,0 +1,6 @@
+.ant-table-row .ant-table-cell:first-of-type {
+    width: 10%;
+}
+.ant-table-cell img  {
+    width: 100%;
+}

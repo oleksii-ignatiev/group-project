@@ -15,9 +15,9 @@ function App() {
       <Provider store={ store }>
           <Router history={ history }>
               <Routes />
-          </Router>
+            </Router>
       </Provider>
-  );
+    );
 }
 
 export default App;
