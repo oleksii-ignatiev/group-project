@@ -4,6 +4,8 @@ import {Card, Col, Row, Statistic} from "antd";
 
 
 export const AdditionalDetails = ({filmDetails}) => {
+    const DEFAULT_STATS_COLOR = '#3f8600';
+    const precisionNumber = 2;
     return (
         <Card>
             <Row>
@@ -11,8 +13,8 @@ export const AdditionalDetails = ({filmDetails}) => {
                     <Statistic
                         title="Budget"
                         value={filmDetails.budget}
-                        precision={2}
-                        valueStyle={{ color: '#3f8600' }}
+                        precision={precisionNumber}
+                        valueStyle={{ color: `${DEFAULT_STATS_COLOR}` }}
                         suffix="$"
                     />
                 </Col>
@@ -20,8 +22,8 @@ export const AdditionalDetails = ({filmDetails}) => {
                     <Statistic
                         title="Revenue"
                         value={filmDetails.revenue}
-                        precision={2}
-                        valueStyle={{ color: '#3f8600' }}
+                        precision={precisionNumber}
+                        valueStyle={{ color: `${DEFAULT_STATS_COLOR}` }}
                         suffix="$"
                     />
                 </Col>
@@ -29,8 +31,8 @@ export const AdditionalDetails = ({filmDetails}) => {
                     <Statistic
                         title="Popularity"
                         value={filmDetails.popularity}
-                        precision={2}
-                        valueStyle={{ color: '#3f8600' }}
+                        precision={precisionNumber}
+                        valueStyle={{ color: `${DEFAULT_STATS_COLOR}` }}
                     />
                 </Col>
             </Row>
