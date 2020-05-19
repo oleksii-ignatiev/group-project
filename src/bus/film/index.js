@@ -10,6 +10,7 @@ import { useFilmDetails } from './hooks/useFilmDetails';
 //Components
 import { AdditionalDetails } from './components/additionalDetails';
 import { Details } from './components/details';
+import { Comments } from './components/comments';
 
 
 
@@ -39,6 +40,7 @@ export const Film = () => {
         <>
             <Details filmDetails={filmDetails} />
             <AdditionalDetails filmDetails={filmDetails} />
+            <Comments id={id} />
         </>
     );
 
