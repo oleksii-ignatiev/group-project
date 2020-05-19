@@ -5,4 +5,5 @@ export const book = Object.freeze({
     popularFilms: '/popular-films',
     films: '/films',
     film: '/film/:id',
+    latestFilms: '/latest-films'
 });
