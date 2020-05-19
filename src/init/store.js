@@ -11,4 +11,4 @@ import {
 export const store = createStore(
     rootReducer,
     composeEnhancers(applyMiddleware(...middleware))
-)
+);
