@@ -12,6 +12,6 @@ export const rootReducer = combineReducers({
     topRatedFilms,
     popularFilms,
     filmDetails,
-    latestFilms
+    latestFilms,
     comments,
 });
