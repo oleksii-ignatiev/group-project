@@ -14,8 +14,8 @@ export const useComments = () => {
     } = useSelector((state) => state.comments);
 
 
-    const getComments = (moveId) => {
-        dispatch(commentsActions.fetchCommentsAsync(moveId))
+    const getComments = (moveId, page=1) => {
+        dispatch(commentsActions.fetchCommentsAsync(moveId, page))
     };
 
     return {

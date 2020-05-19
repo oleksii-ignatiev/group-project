@@ -30,14 +30,14 @@ export const commentsActions = Object.freeze({
         }
     },
     //Async
-    fetchCommentsAsync: (movieId) => async (dispatch) => {
+    fetchCommentsAsync: (movieId, page) => async (dispatch) => {
         dispatch({
             type: types.COMMENTS_FETCH_ASYNC,
         });
 
         dispatch(commentsActions.startFetching());
 
-        const response = await api.getComments.fetch(movieId);
+        const response = await api.getComments.fetch(movieId, page);
 
         if (response.status === 200) {
 
