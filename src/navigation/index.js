@@ -8,10 +8,11 @@ import { book } from './book';
 // Pages
 import { Home } from '../pages/home';
 import { TopRatedFilms } from '../pages/topRatedFilms';
+import { PopularFilms } from '../pages/popularFilms';
 
 export const Routes = () => {
-   
-    
+
+
     return (
         <>
             <Switch>
@@ -24,7 +25,9 @@ export const Routes = () => {
                 <Route exact path={ book.films }>
                     <Redirect to={ book.topRatedFilms } />
                 </Route>
-
+                <Route exact path={ book.popularFilms }>
+                    <PopularFilms />
+                </Route>
             </Switch>
         </>
     )
