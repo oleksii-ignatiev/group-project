@@ -8,10 +8,9 @@ import {similarFilmsActions} from "../redux/actions";
 export const useSimilarFilms = () => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(similarFilmsActions.similarFilmsFetchAsync());
-    }, [dispatch]);
-
+    const getSimilarFilms = (movieId) => {
+        dispatch(similarFilmsActions.similarFilmsFetchAsync(movieId));
+    };
 
     const {
         similarFilms,
@@ -20,6 +19,7 @@ export const useSimilarFilms = () => {
     } = useSelector((state) => state.similarFilms);
 
     return {
+        getSimilarFilms,
         similarFilms,
         isFetching,
         error

@@ -30,14 +30,14 @@ export const similarFilmsActions = Object.freeze({
         }
     },
     // Async
-    similarFilmsFetchAsync: () => async (dispatch) => {
+    similarFilmsFetchAsync: (movieId) => async (dispatch) => {
         dispatch({
             type: types.SIMILAR_FILMS_FETCH_ASYNC
         });
 
         dispatch(similarFilmsActions.startFetching());
 
-        const response = await api.similarFilms.fetch();
+        const response = await api.similarFilms.fetch(movieId);
 
         if (response.status === 200) {
             const results = await response.json();

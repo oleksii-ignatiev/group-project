@@ -3,7 +3,6 @@ import {Table} from 'antd';
 import 'antd/dist/antd.css';
 
 import {useLatestFilms} from "./hooks/useFetchLatestFilms";
-import {SimilarFilms} from "../../components/similarFilms";
 
 export const LatestFilms = () => {
     const {latestFilmDetails, isFetching, error} = useLatestFilms();
@@ -77,7 +76,6 @@ export const LatestFilms = () => {
         <>
             <h1>Latest Films</h1>
             {tableJSX}
-            <SimilarFilms/>
         </>
     )
 };

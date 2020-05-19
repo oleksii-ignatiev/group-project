@@ -1,12 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useSimilarFilms } from "./hooks/useFetchSimilarFilms";
 import { Card, Popover, Button } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 
 import "./styles.scss"
 
-export const SimilarFilms = () => {
-    const {similarFilms} = useSimilarFilms();
+export const SimilarFilms = (props) => {
+    const {similarFilms, getSimilarFilms} = useSimilarFilms();
+
+    useEffect(() => getSimilarFilms(props.movieId), []);
 
     const gridStyle = {
         width: '25%',

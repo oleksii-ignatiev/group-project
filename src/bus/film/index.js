@@ -2,16 +2,18 @@
 import React, {useEffect} from 'react';
 import { Spin, Space } from 'antd';
 import { useParams } from 'react-router-dom';
+
 // Styles
 import 'antd/dist/antd.css';
 import '../popularFilms/styles.css';
+
 // Hooks
 import { useFilmDetails } from './hooks/useFilmDetails';
+
 //Components
 import { AdditionalDetails } from './components/additionalDetails';
 import { Details } from './components/details';
-
-
+import {SimilarFilms} from "../../components/similarFilms";
 
 export const Film = () => {
     const { id } = useParams();
@@ -47,6 +49,9 @@ export const Film = () => {
             <h2>Film details</h2>
             {detailsJSX}
             {spinnerJSX}
+            <SimilarFilms
+                movieId = {id}
+            />
         </div>
     )
 };
