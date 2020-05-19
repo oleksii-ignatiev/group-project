@@ -27,4 +27,4 @@ if (developmentEnvironment) {
     middleware.push(logger);
 }
 
-export {composeEnhancers, middleware};
+export { composeEnhancers, middleware };
