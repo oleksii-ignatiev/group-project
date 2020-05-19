@@ -9,9 +9,9 @@ export const latestFilms = (state = initialState, action) => {
         case types.LATEST_FILMS_STOP_FETCHING:
             return {...state, isFetching: false};
         case types.LATEST_FILMS_SET_FETCHING_ERROR:
-            return {...state, error: action.payload, latestFilms: ''};
+            return {...state, error: action.payload, latestFilmDetails: {}};
         case types.LATEST_FILMS_FILL:
-            return {...state, latestFilms: action.payload}
+            return {...state, latestFilmDetails: action.payload}    
         default:
             return state;
     }
