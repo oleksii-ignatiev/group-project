@@ -15,27 +15,31 @@ export const SimilarFilms = (props) => {
         textAlign: 'center',
     };
 
-    return (
-        <>
-            <Card title="Similar Films">
-                {similarFilms.slice(0, 5).map((film) => (
-                    <Card.Grid hoverable={false} style={gridStyle} key={film.id}>
+    const filmCardsJSX = similarFilms.length ?
+        <Card title="Similar Films">
+            {similarFilms.slice(0, 5).map((film) => (
+                <Card.Grid hoverable={false} style={gridStyle} key={film.id}>
                         <span className='film-title'>
                             <b>{film.title}</b>
                         </span>
 
-                        <img src={film.poster_path} alt="" width={100}/>
+                    <img src={film.poster_path} alt="" width={100}/>
 
-                        <div>
-                            <Popover content={film.overview} title={film.title}>
-                                <Button type="primary">Short Description <InfoCircleOutlined /></Button>
-                            </Popover>
-                        </div>
+                    <div>
+                        <Popover content={film.overview} title={film.title}>
+                            <Button type="primary">Short Description <InfoCircleOutlined /></Button>
+                        </Popover>
+                    </div>
 
-                        <b>{film.release_date}</b>
-                    </Card.Grid>
-                ))}
-            </Card>
+                    <b>{film.release_date}</b>
+                </Card.Grid>
+            ))}
+        </Card>
+        : <div className='error'>Similar Films not found!</div>
+
+    return (
+        <>
+            {filmCardsJSX}
         </>
     )
 }
