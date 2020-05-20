@@ -14,6 +14,9 @@ import { useFilmDetails } from './hooks/useFilmDetails';
 import { AdditionalDetails } from './components/additionalDetails';
 import { Details } from './components/details';
 import {SimilarFilms} from "../../components/similarFilms";
+import { Comments } from './components/comments';
+
+
 
 export const Film = () => {
     const { id } = useParams();
@@ -52,6 +55,7 @@ export const Film = () => {
             <SimilarFilms
                 movieId = {id}
             />
+            <Comments id={id} />
         </div>
     )
 };

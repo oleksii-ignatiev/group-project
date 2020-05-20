@@ -8,12 +8,14 @@ import { popularFilmsReducer as popularFilms } from '../bus/popularFilms/reducer
 import { filmDetailsReducer as filmDetails } from '../bus/film/reducer';
 import { latestFilms } from "../bus/latestFilms/redux/reducer";
 import { similarFilms } from "../components/similarFilms/redux/reducer";
+import { commentsReducer as comments } from '../bus/film/components/comments/reducer';
 
 export const rootReducer = combineReducers({
-   topRatedFilms,
+    topRatedFilms,
     trendingMovies,
     popularFilms,
     filmDetails,
     latestFilms,
-    similarFilms
+    similarFilms,
+    comments,
 });

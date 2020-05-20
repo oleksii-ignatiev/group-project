@@ -1,0 +1,12 @@
+.commentText {
+    max-height: 75px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.commentsContainer {
+    max-height: 500px;
+    overflow: auto;
+
+}
