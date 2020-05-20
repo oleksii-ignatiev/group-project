@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import 'antd/dist/antd.css';
 
 import './custom.css';
+
 import { useTopRatedFilms } from './hooks/useTopRatedFilms';
 
 export const TopRatedFilms = () => {
