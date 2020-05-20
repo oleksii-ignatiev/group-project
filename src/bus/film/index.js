@@ -10,6 +10,7 @@ import { useFilmDetails } from './hooks/useFilmDetails';
 //Components
 import { AdditionalDetails } from './components/additionalDetails';
 import { Details } from './components/details';
+import { RecommendedMovies } from './components/recommendedMovies';
 
 
 
@@ -46,6 +47,7 @@ export const Film = () => {
         <div className="container">
             <h2>Film details</h2>
             {detailsJSX}
+            <RecommendedMovies id = { id }/>
             {spinnerJSX}
         </div>
     )
