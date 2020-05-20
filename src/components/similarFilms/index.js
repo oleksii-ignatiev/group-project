@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import { useSimilarFilms } from "./hooks/useFetchSimilarFilms";
-import { Card, Popover, Button } from "antd";
+import { Card, Popover, Button, Empty } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 
 import "./styles.scss"
@@ -10,6 +10,8 @@ export const SimilarFilms = (props) => {
 
     useEffect(() => getSimilarFilms(props.movieId), []);
 
+    const limitOfFilms = 5;
+
     const gridStyle = {
         width: '20%',
         textAlign: 'center',
@@ -17,13 +19,13 @@ export const SimilarFilms = (props) => {
 
     const filmCardsJSX = similarFilms.length ?
         <Card title="Similar Films">
-            {similarFilms.slice(0, 5).map((film) => (
+            {similarFilms.slice(0, limitOfFilms).map((film) => (
                 <Card.Grid hoverable={false} style={gridStyle} key={film.id}>
                         <span className='film-title'>
                             <b>{film.title}</b>
                         </span>
 
-                    <img src={film.poster_path} alt="" width={100}/>
+                    {film.poster_path ? <img src={film.poster_path} alt="" width={100}/> : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />}
 
                     <div>
                         <Popover content={film.overview} title={film.title}>

@@ -1,8 +1,9 @@
 import React from 'react';
-import {Table} from 'antd';
+import { Link } from "react-router-dom";
+import { Table, Empty } from 'antd';
 import 'antd/dist/antd.css';
 
-import {useLatestFilms} from "./hooks/useFetchLatestFilms";
+import { useLatestFilms } from "./hooks/useFetchLatestFilms";
 
 export const LatestFilms = () => {
     const {latestFilmDetails, isFetching, error} = useLatestFilms();
@@ -14,12 +15,23 @@ export const LatestFilms = () => {
             title: 'Постер',
             dataIndex: 'poster_path',
             key: 'poster_path',
-            render: text => <img src={text} width={100} alt='' />
+            render: text => {
+                return (
+                    text ? <img src={text} width={100} alt=''/> : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                )
+            }
         },
         {
             title: 'Название',
             dataIndex: 'title',
-            key: 'title'
+            key: 'title',
+            render: text => (
+                <Link to={{
+                    pathname: `/film/${latestFilmDetails.id}`
+                }}>
+                    {text}
+                </Link>
+            )
         },
         {
             title: 'Дата релиза',
