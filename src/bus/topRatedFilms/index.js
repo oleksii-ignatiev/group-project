@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Table, Tag } from 'antd';
+import {Link} from "react-router-dom";
 import 'antd/dist/antd.css';
+
 import './custom.css';
-
-
 import { useTopRatedFilms } from './hooks/useTopRatedFilms';
 
 export const TopRatedFilms = () => {
@@ -11,8 +11,7 @@ export const TopRatedFilms = () => {
     useEffect(() => {
         getTopRatedFilms();
     }, []);
-    
-    
+
     const columns = [
         {
           title: 'Poster',
@@ -24,6 +23,13 @@ export const TopRatedFilms = () => {
           title: 'Title',
           dataIndex: 'title',
           key: 'title',
+            render: (text, row) => (
+                <Link to={{
+                    pathname: `/film/${row.id}`
+                }}>
+                    {text}
+                </Link>
+            )
         },
         {
           title: 'Release Date',
@@ -71,7 +77,7 @@ export const TopRatedFilms = () => {
     return (
         <>
             <h1>Top Rated Films</h1>
-            <Table columns={columns} dataSource={topRatedFilms} />
+            <Table columns={columns} dataSource={topRatedFilms} rowKey='id' />
         </>
     )
 }
