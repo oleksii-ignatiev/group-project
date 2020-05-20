@@ -5,10 +5,10 @@ import 'antd/dist/antd.css';
 import {useLatestFilms} from "./hooks/useFetchLatestFilms";
 
 export const LatestFilms = () => {
-    const {latestFilms, isFetching, error} = useLatestFilms();
+    const {latestFilmDetails, isFetching, error} = useLatestFilms();
 
     // Table configuration
-    const dataSource = [latestFilms];
+    const dataSource = [latestFilmDetails];
     const columns = [
         {
             title: 'Постер',
@@ -59,7 +59,7 @@ export const LatestFilms = () => {
 
     let tableId = 0;
 
-    const tableJSX = !isFetching && latestFilms &&
+    const tableJSX = latestFilmDetails &&
         <Table
             dataSource={dataSource}
             columns={columns}

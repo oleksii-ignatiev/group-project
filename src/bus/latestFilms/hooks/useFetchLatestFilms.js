@@ -14,13 +14,13 @@ export const useLatestFilms = () => {
 
 
     const {
-        latestFilms,
+        latestFilmDetails,
         isFetching,
         error
     } = useSelector((state) => state.latestFilms);
 
     return {
-        latestFilms,
+        latestFilmDetails,
         isFetching,
         error
     }
