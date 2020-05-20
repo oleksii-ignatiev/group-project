@@ -1,20 +1,26 @@
 //Core
 import React from "react";
 import {Avatar} from "antd";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 export const columns = [
     {
         title: 'Poster',
         dataIndex: 'poster_path',
         key: 'poster_path',
-        render: (icon) => <Avatar shape="square" size={200} icon={<img src={icon} alt="img" />} />
+        render: (icon) => <Avatar shape="square" size={200} src={icon} />
     },
     {
         title: 'Title',
         dataIndex: 'title',
         key: 'title',
-        render: (title, item) => <Link to={`/film/${item.id}`}>{title}</Link>
+        render: (text, row) => (
+            <Link to={{
+                pathname: `/film/${row.id}`
+            }}>
+                {text}
+            </Link>
+        )
     },
     {
         title: 'Popularity',

@@ -7,15 +7,14 @@ import { Provider } from 'react-redux';
 import { Routes } from './navigation';
 
 // Other
-import { history } from './navigation/history';
+import { history} from './navigation/history';
 import { store } from './init/store';
 
-
-function App() {
+export const App = () => {
     return (
         <Provider store={ store }>
             <Router history={ history }>
-                <Routes />
+                <Routes/>
             </Router>
         </Provider>
     );

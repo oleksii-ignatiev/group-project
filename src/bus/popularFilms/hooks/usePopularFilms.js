@@ -14,7 +14,7 @@ export const usePopularFilms = () => {
     } = useSelector((state) => state.popularFilms);
 
     const getPopularFilms = () => {
-        dispatch(popularFilmsActions.fetchAsync());
+        dispatch(popularFilmsActions.fetchAsync(1));
     };
 
     return {

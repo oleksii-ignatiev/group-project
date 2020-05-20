@@ -4,54 +4,54 @@ import { types} from './types';
 //API
 import { api } from './api';
 
-export const popularFilmsActions = Object.freeze({
+export const commentsActions = Object.freeze({
     //Sync
     startFetching: () => {
         return {
-            type: types.POPULAR_FILMS_START_FETCHING,
+            type: types.COMMENTS_START_FETCHING,
         }
     },
     stopFetching: () => {
         return {
-            type: types.POPULAR_FILMS_STOP_FETCHING,
+            type: types.COMMENTS_STOP_FETCHING,
         }
     },
     fill: (payload) => {
         return {
-            type: types.POPULAR_FILMS_FILL,
+            type: types.COMMENTS_FILL,
             payload,
         }
     },
     setFetchingError: (error) => {
         return {
-            type: types.POPULAR_FILMS_SET_FETCHING_ERROR,
+            type: types.COMMENTS_SET_FETCHING_ERROR,
             error: true,
             payload: error
         }
     },
     //Async
-    fetchAsync: (page) => async (dispatch) => {
+    fetchCommentsAsync: (movieId, page) => async (dispatch) => {
         dispatch({
-            type: types.POPULAR_FILMS_FETCH_ASYNC,
+            type: types.COMMENTS_FETCH_ASYNC,
         });
 
-        dispatch(popularFilmsActions.startFetching());
+        dispatch(commentsActions.startFetching());
 
-        const response = await api.getPopularMovies.fetch(page);
+        const response = await api.getComments.fetch(movieId, page);
 
         if (response.status === 200) {
 
             const results = await response.json();
 
-            dispatch(popularFilmsActions.fill(results.data));
+            dispatch(commentsActions.fill(results.data));
         } else {
             const error = {
                 status: response.status
             };
 
-            dispatch(popularFilmsActions.setFetchingError(error));
+            dispatch(commentsActions.setFetchingError(error));
         }
 
-        dispatch(popularFilmsActions.stopFetching());
+        dispatch(commentsActions.stopFetching());
     }
 });

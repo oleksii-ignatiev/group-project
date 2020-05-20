@@ -10,10 +10,9 @@ import { Home } from '../pages/home';
 import { TopRatedFilms } from '../pages/topRatedFilms';
 import { PopularFilms } from '../pages/popularFilms';
 import { Film } from '../pages/film';
+import { LatestFilms } from "../pages/latestFilms";
 
 export const Routes = () => {
-   
-    
     return (
         <>
             <Switch>
@@ -32,8 +31,10 @@ export const Routes = () => {
                 <Route exact path={ book.film }>
                     <Film />
                 </Route>
-
+                <Route exact path={book.latestFilms}>
+                    <LatestFilms/>
+                </Route>
             </Switch>
         </>
     )
-}
+};

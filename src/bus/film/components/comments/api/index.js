@@ -2,9 +2,9 @@
 import { root } from './config';
 
 export const api = Object.freeze({
-    getPopularMovies: {
-        fetch: (page) => {
-            return fetch(`${root}/popular-movies?page=${page}`, {
+    getComments: {
+        fetch: (movieId, page) => {
+            return fetch(`${root}/${movieId}/reviews?page=${page}`, {
                 method: 'GET'
             })
         }
