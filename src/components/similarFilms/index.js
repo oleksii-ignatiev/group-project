@@ -11,14 +11,14 @@ export const SimilarFilms = (props) => {
     useEffect(() => getSimilarFilms(props.movieId), []);
 
     const gridStyle = {
-        width: '25%',
+        width: '20%',
         textAlign: 'center',
     };
 
     return (
         <>
             <Card title="Similar Films">
-                {similarFilms.map((film) => (
+                {similarFilms.slice(0, 5).map((film) => (
                     <Card.Grid hoverable={false} style={gridStyle} key={film.id}>
                         <span className='film-title'>
                             <b>{film.title}</b>
@@ -33,7 +33,6 @@ export const SimilarFilms = (props) => {
                         </div>
 
                         <b>{film.release_date}</b>
-
                     </Card.Grid>
                 ))}
             </Card>
