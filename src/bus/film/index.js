@@ -23,7 +23,7 @@ export const Film = () => {
     const { id } = useParams();
     const { getFilmDetails, filmDetails, isFetching, error } = useFilmDetails();
 
-    useEffect(() => getFilmDetails(id), []);
+    useEffect(() => getFilmDetails(id), [id]);
 
 
     if (error && error.status === 404) {
