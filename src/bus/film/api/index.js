@@ -9,4 +9,11 @@ export const api = Object.freeze({
             })
         }
     },
+    getRecommendedMovies: {
+        fetch: (movieId) => {
+            return fetch(`${root}/${movieId}/recommendations?page=5`, {
+                method: 'GET'
+            })
+        }
+    },
 });

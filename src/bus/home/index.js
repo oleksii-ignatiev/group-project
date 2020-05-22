@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Tabs, Card } from 'antd';
+import {Link} from "react-router-dom";
 
 import 'antd/dist/antd.css';
 import './custom.scss';
@@ -29,7 +30,9 @@ export const Home = () => {
 
     const moviesJSX = trendingMovies.map( (movie) =>
         <Card title = { movie.title } key = { movie.id } >
-            <img src = { movie.poster_path } alt="poster"/>
+            <Link to={{ pathname: `/film/${movie.id}` }}>
+                <img src = { movie.poster_path } alt="poster"/>
+            </Link>
             <p>{ movie.overview }</p>
             <p>{ movie.release_year }</p>
         </Card>

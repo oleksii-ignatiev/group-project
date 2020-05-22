@@ -1,8 +1,6 @@
-// Core
-import {createStore, applyMiddleware} from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
-// Other
-import {rootReducer} from './rootReducer';
+import { rootReducer } from './rootReducer';
 import {
     middleware,
     composeEnhancers

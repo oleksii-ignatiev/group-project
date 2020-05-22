@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Table, Tag } from 'antd';
 import {Link} from "react-router-dom";
-import 'antd/dist/antd.css';
 
+import 'antd/dist/antd.css';
 import './custom.css';
 
 import { useTopRatedFilms } from './hooks/useTopRatedFilms';
@@ -18,16 +18,18 @@ export const TopRatedFilms = () => {
           title: 'Poster',
           dataIndex: 'poster_path',
           key: 'poster_path',
-          render: text => <img src={text} alt="poster"/>,
+          render: (text, row) => (
+            <Link to={{ pathname: `/film/${row.id}` }}>
+                <img src={text} alt="poster"/>
+            </Link>
+          )
         },
         {
           title: 'Title',
           dataIndex: 'title',
           key: 'title',
             render: (text, row) => (
-                <Link to={{
-                    pathname: `/film/${row.id}`
-                }}>
+                <Link to={{ pathname: `/film/${row.id}` }}>
                     {text}
                 </Link>
             )

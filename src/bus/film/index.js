@@ -13,6 +13,7 @@ import { useFilmDetails } from './hooks/useFilmDetails';
 //Components
 import { AdditionalDetails } from './components/additionalDetails';
 import { Details } from './components/details';
+import { RecommendedMovies } from './components/recommendedMovies';
 import {SimilarFilms} from "../../components/similarFilms";
 import { Comments } from './components/comments';
 
@@ -22,7 +23,7 @@ export const Film = () => {
     const { id } = useParams();
     const { getFilmDetails, filmDetails, isFetching, error } = useFilmDetails();
 
-    useEffect(() => getFilmDetails(id), []);
+    useEffect(() => getFilmDetails(id), [id]);
 
 
     if (error && error.status === 404) {
@@ -51,6 +52,7 @@ export const Film = () => {
         <div className="container">
             <h2>Film details</h2>
             {detailsJSX}
+            <RecommendedMovies id = { id }/>
             {spinnerJSX}
             <SimilarFilms
                 movieId = {id}
